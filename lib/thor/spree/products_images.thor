@@ -49,10 +49,6 @@ module DatashiftSpree
         raise "Bad Config - Cannot find specified file #{options[:config]}" unless File.exists?(options[:config])
 
         loader.configure_from( options[:config] )
-      else
-        loader.populator.set_default_value('available_on', Time.now.to_s(:db) )
-        loader.populator.set_default_value('cost_price', 0.0 )
-        loader.populator.set_default_value('price', 0.0 )
       end
 
       loader.set_prefix('sku', options[:sku_prefix] ) if(options[:sku_prefix])
